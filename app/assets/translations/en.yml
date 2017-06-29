@@ -6,14 +6,14 @@ main_navigation:
 
 homepage:
   subhead: tracking yemen
-  title: Monitoring Agricultural and Rural Development in Yemen
-  description: Keep track of agricultural development projects, map their locations, compare their objectives and reach, and match the socioeconomic status of project areas on the subnational level.
+  title: Monitoring Food Security and Nutrition in Yemen
+  description: Keep track of agricultural, food security, health and nutrition development projects, map their locations, compare their objectives and reach, and match the socioeconomic status of project areas on the subnational level.
   more: Learn More
 
   map_key_circle: Number of Project Locations
   map_key_marker: Project
 
-  stats_overview: Overview of Agricultural Projects
+  stats_overview: Overview of Food Security and Nutrition Projects
   overview_description: View consolidated project information and compare investments in different subsectors.
   all_projects_btn: View All Projects
   chart_title_one: Number of Projects by Category
@@ -35,13 +35,13 @@ homepage:
 
 projects_indicators:
   projects_title: Projects and Indicators
-  projects_description: Browse projects on the map or see a list of all agriculture projects. Map or chart development indicators to add socioeconomic context.
+  projects_description: Browse projects on the map or see a list of all agriculture, food security and nutrition projects. Map or chart development indicators to add socioeconomic context.
   filter_projects_btn: Add & Filter Projects
   indicator_overlays_btn: Add Indicator Overlays
   search_text: Zoom to Governorate
   map_toggle_btn: Map
   list_toggle_btn: List/Chart
-  sds_dropdown: SDS Indicators
+  sds_dropdown: NFSS Indicators
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
 
@@ -79,7 +79,7 @@ project_pages:
   local_manager_title: Local Manager
   kmi_components: Project Components
   sdg_goals_title: SDG Goals
-  sds_pillars_title: SDS Pillars
+  sds_pillars_title: NFSS Pillars
 
   monitoring_indicators_title: Monitoring Indicators
   funding_by_donor_title: Funding by Donor (US dollars)
@@ -95,7 +95,7 @@ project_pages:
   comparison_chart_title2: Percentage Complete
   comparision_chart_title3: Targeted Beneficiaries
 
-  related_sds_projects_title: Related Projects By SDS Goal
+  related_sds_projects_title: Related Projects By NFSS Goal
 
 category_pages:
   print: Print
