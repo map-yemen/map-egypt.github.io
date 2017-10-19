@@ -13,8 +13,8 @@ homepage:
   map_key_circle: Number of Project Locations
   map_key_marker: Project
 
-  stats_overview: Overview of Agricultural Projects
-  overview_description: View consolidated project information and compare investments in different subsectors.
+  stats_overview: Overview of Development Projects
+  overview_description: View consolidated project information and compare investments in different sectors.
   all_projects_btn: View All Projects
   chart_title_one: Number of Projects by Category
   chart_title_two: Status
@@ -28,20 +28,18 @@ homepage:
   donor_collaborations: donor collaborations
 
   other_indicators_title: Other Progress Indicators
-  other_indicators_description: Map and chart development indicators related to poverty and food and nutrition security in Yemen. Overlay agriculture and rural development projects in areas of interest.
-  sds_button: SDS Indicators
+  other_indicators_description: Map and chart development indicators related to poverty and food and nutrition security in Yemen. Overlay agriculture, nutrition and rural development projects in areas of interest.
   sdg_button: SDG Indicators
   other_button: Other Indicators
 
 projects_indicators:
   projects_title: Projects and Indicators
-  projects_description: Browse projects on the map or see a list of all agriculture projects. Map or chart development indicators to add socioeconomic context.
+  projects_description: Browse projects on the map or see a list of development projects. Map or chart development indicators to add socioeconomic context.
   filter_projects_btn: Add & Filter Projects
   indicator_overlays_btn: Add Indicator Overlays
   search_text: Zoom to Governorate
   map_toggle_btn: Map
   list_toggle_btn: List/Chart
-  sds_dropdown: SDS Indicators
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
 
