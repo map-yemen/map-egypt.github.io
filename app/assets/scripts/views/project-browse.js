@@ -151,7 +151,7 @@ var ProjectBrowse = React.createClass({
   componentWillUpdate: function (nextProps, nextState) {
     const activeIndicator = nextState.activeIndicator;
     if (activeIndicator && activeIndicator !== this.state.activeIndicator) {
-      const meta = this.props.api.indicators.find((indicator) => indicator.name === activeIndicator);
+      const meta = this.props.api.indicators.find((indicator) => indicator.name === activeIndicator || indicator.name_ar === activeIndicator);
       if (meta && meta.id) {
         this.props.dispatch(getIndicator(meta.id));
       }
@@ -356,6 +356,7 @@ var ProjectBrowse = React.createClass({
   renderIndicatorSelector: function () {
     const { selectedIndicators, activeIndicatorTheme, activeIndicatorType } = this.state;
     const { lang } = this.props.meta;
+    const t = get(window.t, [lang, 'projects_indicators'], {});
     const indicatorProp = activeIndicatorType.toLowerCase();
     const indicators = get(this.props.api, 'indicators', []).filter((indicator) => {
       return indicator.theme.length && indicator.theme.find(d => d.type === indicatorProp);
@@ -390,7 +391,7 @@ var ProjectBrowse = React.createClass({
       <section className='modal modal--large'>
         <div className='modal__inner modal__indicators'>
           <button className='modal__button-dismiss' title='close' onClick={this.closeModal}></button>
-          <h1 className='inpage__title heading--deco heading--medium'>Add {this.state.activeIndicatorType.toUpperCase()} Indicators</h1>
+          <h1 className='inpage__title heading--deco heading--medium'>{t.add} {t[this.state.activeIndicatorType.toLowerCase() + '_dropdown']}</h1>
           <div className='modal__instructions'><p>Add and compare development indicators listed below.</p></div>
 
           <div className='indicators--selected'>
@@ -418,7 +419,8 @@ var ProjectBrowse = React.createClass({
             </div>
             <div className='indicators--options'>
               {availableIndicators.length && availableIndicators.map((indicator) => {
-                const name = indicator.name;
+                const name = lang === 'en' ? indicator.name : indicator.name_ar;
+                if (!name) return;
                 const id = 'subtypes-' + slugify(name);
 
                 return (
@@ -462,7 +464,7 @@ var ProjectBrowse = React.createClass({
               className={'indicator__overlay--item' + (activeIndicator === indicator ? ' indicator__overlay--selected' : '')}>
               <button className='indicator-toggle' onClick={() => this.setActiveIndicator(indicator)}><span>toggle visibility</span></button>
               <span className='indicator-layer-name'>{indicator}</span>
-              <span className='form__option__info' data-tip={indicatorTooltipContent(this.props.api.indicators.find(i => i.name === indicator))}>?</span>
+              <span className='form__option__info' data-tip={indicatorTooltipContent(this.props.api.indicators.find(i => i.name === indicator || i.name_ar === indicator))}>?</span>
               <button className='indicator-close' onClick={() => this.removeActiveIndicator(indicator)}><span>close indicator</span></button>
             </li>
           ))}
@@ -567,7 +569,7 @@ var ProjectBrowse = React.createClass({
     let indicatorChartData;
     let csvCharts;
     if (activeIndicator) {
-      const indicatorMeta = this.props.api.indicators.find((indicator) => indicator.name === activeIndicator);
+      const indicatorMeta = this.props.api.indicators.find((indicator) => indicator.name === activeIndicator || indicator.name_ar === activeIndicator);
       const indicatorData = get(this.props.api, 'indicatorDetail.' + indicatorMeta.id);
       if (indicatorData) {
         overlay = this.createOverlay(indicatorData);
@@ -616,10 +618,10 @@ var ProjectBrowse = React.createClass({
                       {this.state.indicatorToggle &&
                         <ul className='drop__menu drop--align-left button--secondary'>
                           {indicatorTypes.map((d) => {
-                            d = t[d + '_dropdown'];
+                            let display = t[d + '_dropdown'];
                             return <li key={d}
                               onClick={() => this.openIndicatorSelector(d)}
-                              className='drop__menu-item'>{d}</li>;
+                              className='drop__menu-item'>{display}</li>;
                           })}
                         </ul>
                       }
