@@ -356,6 +356,7 @@ var ProjectBrowse = React.createClass({
   renderIndicatorSelector: function () {
     const { selectedIndicators, activeIndicatorTheme, activeIndicatorType } = this.state;
     const { lang } = this.props.meta;
+    const t = get(window.t, [lang, 'projects_indicators'], {});
     const indicatorProp = activeIndicatorType.toLowerCase();
     const indicators = get(this.props.api, 'indicators', []).filter((indicator) => {
       return indicator.theme.length && indicator.theme.find(d => d.type === indicatorProp);
@@ -390,7 +391,7 @@ var ProjectBrowse = React.createClass({
       <section className='modal modal--large'>
         <div className='modal__inner modal__indicators'>
           <button className='modal__button-dismiss' title='close' onClick={this.closeModal}></button>
-          <h1 className='inpage__title heading--deco heading--medium'>Add {this.state.activeIndicatorType.toUpperCase()} Indicators</h1>
+          <h1 className='inpage__title heading--deco heading--medium'>{t.add} {t[this.state.activeIndicatorType.toLowerCase() + '_dropdown']}</h1>
           <div className='modal__instructions'><p>Add and compare development indicators listed below.</p></div>
 
           <div className='indicators--selected'>
