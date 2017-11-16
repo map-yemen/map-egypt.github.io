@@ -107,6 +107,8 @@
     "react-addons-test-utils": "^15.3.2",
     "require-globify": "^1.4.1",
     "sinon": "^1.17.6",
+    "topojson-server": "^3.0.0",
+    "topojson-simplify": "^3.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
