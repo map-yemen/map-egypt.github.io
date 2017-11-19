@@ -42,6 +42,8 @@ projects_indicators:
   list_toggle_btn: 'قائمة \رسم بياني'
   sdg_dropdown: 'مؤشرات أهداف التنمية المُستدامة'
   other_dropdown: 'مؤشرات تنمية أخرى'
+  status_ontime: 'في الميعاد'
+  status_delayed: 'متأخر'
 
 projects_list_view:
   projects_title: 'المشروعات'

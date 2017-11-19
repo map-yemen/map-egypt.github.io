@@ -42,6 +42,8 @@ projects_indicators:
   list_toggle_btn: List/Chart
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
+  status_ontime: On Time
+  status_delayed: Delayed
 
 projects_list_view:
   projects_title: Projects
