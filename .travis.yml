@@ -24,9 +24,9 @@ before_install:
 - chmod +x ./.build_scripts/lint.sh
 before_script:
 - "./.build_scripts/lint.sh"
-- npm test
+- yarn test
 script:
-- npm run build
+- yarn build
 deploy:
   provider: script
   skip_cleanup: true
