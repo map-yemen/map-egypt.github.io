@@ -26,8 +26,9 @@ var About = React.createClass({
           <div className='inner'>
             <section>
               {get(content, 'body', []).map((p, i) => {
-                let text = p.text ? p.text : p;
-                let className = p.class ? p.class : '';
+                let text = p.hasOwnProperty('text') ? p.text
+                  : typeof p === 'string' ? p : '';
+                let className = p.hasOwnProperty('class') ? p.class : '';
                 return <p key={i} className={className}>{text}</p>;
               })}
             </section>
