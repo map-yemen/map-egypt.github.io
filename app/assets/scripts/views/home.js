@@ -157,7 +157,6 @@ var Home = React.createClass({
             <h2 className='section__title'>{t.other_indicators_title}</h2>
             <p className='section__description'>{t.other_indicators_description}</p>
             <ul className='section__footer'>
-              <li><Link to={'/' + lang + '/projects_sds'} type='button' className='button button--primary button--large'>{t.sds_button}</Link></li>
               <li><Link to={'/' + lang + '/projects_sdg'} type='button' className='button button--primary button--large'>{t.sdg_button}</Link></li>
               <li><Link to={'/' + lang + '/projects_other'} type='button' className='button button--primary button--large'>{t.other_button}</Link></li>
             </ul>

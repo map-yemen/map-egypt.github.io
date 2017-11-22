@@ -28,8 +28,7 @@ homepage:
   donor_collaborations: donor collaborations
 
   other_indicators_title: Other Progress Indicators
-  other_indicators_description: Map and chart development indicators related to poverty and food and nutrition security in Yemen. Overlay agriculture and rural development projects in areas of interest.
-  sds_button: SDS Indicators
+  other_indicators_description: Map and chart development indicators related to poverty and food and nutrition security in Yemen. Overlay agriculture, nutrition and rural development projects in areas of interest.
   sdg_button: SDG Indicators
   other_button: Other Indicators
 
@@ -44,6 +43,8 @@ projects_indicators:
   sds_dropdown: NFSS Indicators
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
+  status_ontime: On Time
+  status_delayed: Delayed
 
 projects_list_view:
   projects_title: Projects

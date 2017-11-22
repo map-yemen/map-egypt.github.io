@@ -5,52 +5,52 @@ main_navigation:
   logout_navitem: 'تسجيل الخروج'
 
 homepage:
-  subhead: 'تتبع المشروعات في مصر'
-  title: 'أثر وتقدم المجال الزراعي'
-  description: 'من خلال هذه الاداة يمكنك تتبع مشروعات التنمية الزراعية في مصر، تحديد مواقعها ، مقارنة أهدافها والمستفيدين منها. كما يمكنك مقارنة الوضع الاجتماعي والاقتصادي لمناطق تلك الوشروعات على المستويين الوطنى والمحلى.'
+  subhead: 'تتبع المشروعات في اليمن'
+  title: 'أثر وتقدم التنمية الزراعية والريفية'
+  description: 'من خلال هذه الاداة يمكنك تتبع مشروعات التنمية الزراعية والريفية ومشروعات التغذية في اليمن ، تحديد مواقعها ، مقارنة أهدافها والمستفيدين منها. كما يمكنك مقارنة الوضع الاجتماعي والاقتصادي لمناطق تلك المشروعات على المستويين الوطنى والمحلى.'
   more: 'اقرأ المزيد'
 
   map_key_circle: 'عدد الاماكن الجغرافية للمشروع'
   map_key_marker: 'مشروع'
 
-  stats_overview: 'نظرة عامة عن المشروعات الزراعية'
-  overview_description: 'عرض معلومات مجمعة عن المشروعات ومقارنة الاستثمارات في القطاعات الفرعية المختلفة'
+  stats_overview: 'نظرة عامة عن المشروعات التنموية'
+  overview_description: 'عرض معلومات مجمعة عن المشروعات ومقارنة الاستثمارات في القطاعات التنموية المختلفة'
   all_projects_btn: 'تصفح جميع المشروعات'
-  chart_title_one: 'عدد المشروعات في كل قطاع فرعي'
+  chart_title_one: 'عدد المشروعات في كل قطاع'
   chart_title_two: 'الحالة'
   chart_two_label: 'في الميعاد'
   chart_two_label2: 'متأخر'
   chart_two_label3: 'ممتد'
 
-  total_projects: 'المشروعات مجموع'
+  total_projects: 'مجموع المشروعات'
   in_funding: 'التمويل'
-  total_donors: 'المانحة مجموع'
-  donor_collaborations: 'المانحة التعاون'
+  total_donors: 'مجموع الجهات المانحة'
+  donor_collaborations: 'التعاون بين المانحين'
 
   other_indicators_title: 'مؤشرات التنمية'
   other_indicators_description: 'إضافة ومقارنة مؤشرات التنمية'
-  sds_button: 'مؤشرات استراتيجية التنمية المستدامة'
   sdg_button: 'مؤشرات أهداف التنمية المُستدامة'
   other_button: 'مؤشرات تنمية أخرى'
 
 projects_indicators:
   projects_title: 'المشروعات والمؤشرات'
-  projects_description: 'تصفح المشروعات الزراعية على الخريطة أو من خلال القائمة. يمكنك إضافة مؤشرات التنمية لوضع المشروعات في سياق الحالة التنموية في المحافظة'
+  projects_description: 'تصفح المشروعات التنموية على الخريطة أو من خلال القائمة. يمكنك إضافة مؤشرات التنمية لوضع المشروعات في سياق الحالة التنموية في المحافظة'
   filter_projects_btn: 'اضافة وتصفية المشروعات'
   indicator_overlays_btn: 'اضافة مؤشرات'
   search_text: 'اسم المحافظة'
   map_toggle_btn: 'خريطة'
   list_toggle_btn: 'قائمة \رسم بياني'
-  sds_dropdown: 'مؤشرات استراتيجية التنمية المستدامة'
   sdg_dropdown: 'مؤشرات أهداف التنمية المُستدامة'
   other_dropdown: 'مؤشرات تنمية أخرى'
+  status_ontime: 'في الميعاد'
+  status_delayed: 'متأخر'
 
 projects_list_view:
   projects_title: 'المشروعات'
   sort_by_title: 'تصنيف'
   sort_alphabetical: 'أبجدي'
-  sort_ascending: النسبة المئوية مكتملة
-  sort_descending: النسبة المئوية مكتملة
+  sort_ascending: 'النسبة المئوية تصاعدي'
+  sort_descending: 'النسبة المئوية تنازلي'
 
 project_pages:
   print: 'طباعة'
@@ -62,15 +62,15 @@ project_pages:
   last_update_title: 'التحديث الأخير'
   current_progress_title: 'التقدم الحالي'
   proposed_timeline_title: 'الجدول الزمني المقترح'
-  categories_title: 'القطاعات الفرعية'
+  categories_title: 'القطاعات'
   donors_title: 'الجهات المانحة'
-  recommendations: توصيات بناء على خبرة المشروع
-  contract_date: تم توقيع العقد
+  recommendations: 'توصيات بناء على خبرة المشروع'
+  contract_date: 'تاريخ توقيع العقد'
 
   funding_title: 'التمويل'
   funding_loans_title: 'قرض'
   funding_grants_title: 'منحة'
-  funding_local_title: 'قرضة'
+  funding_local_title: 'مساهمة محلية'
   objective_title: 'الهدف'
   location_title: 'النطاق الجغرافي'
   project_link: 'الرابط الالكتروني للمشروع'
@@ -79,7 +79,6 @@ project_pages:
   local_manager_title: 'المدير المحلي للمشروع'
   kmi_components: 'مكونات وأنشطة المشروع'
   sdg_goals_title: 'أهداف التنمية المُستدامة'
-  sds_pillars_title: 'أهداف استراتيجية التنمية المستدامة'
 
   monitoring_indicators_title: 'مؤشرات الرصد الرئيسية'
   funding_by_donor_title: 'التمويل من الجهات المانحة - بالدولار الأمريكي'
@@ -90,12 +89,12 @@ project_pages:
   rate_title: 'التقدم في التنفيذ'
   date_title: 'تاريخ الرصد'
 
-  project_comparison_title: 'مقارنة المشروعات حسب القطاع الفرعي'
+  project_comparison_title: 'مقارنة المشروعات حسب القطاع التنموي'
   comparison_chart_title1: 'التمويل'
   comparison_chart_title2: 'نسبة الانتهاء'
   comparision_chart_title3: 'المستفيدون المستهدفون'
 
-  related_sds_projects_title: ' مشروعات ذات صلة - حسب أهداف استراتيجية التنمية المُستدامة '
+  related_sdg_projects_title: 'مشروعات ذات صلة - حسب أهداف التنمية المُستدامة'
 
 category_pages:
   print: 'طباعة'
@@ -105,8 +104,8 @@ category_pages:
   cat_stats_funded_3: 'المدفوع'
 
   comparison_title: 'مقارنة'
-  comparison_chart_title1: 'عدد المشروعات حسب القطاع الفرعي'
-  comparison_chart_title2: 'التمويل من الجهات المانحة حسب القطاع الفرعي - بالدولار الأمريكي'
+  comparison_chart_title1: 'عدد المشروعات حسب القطاع التنموي'
+  comparison_chart_title2: 'التمويل من الجهات المانحة حسب القطاع التنموي - بالدولار الأمريكي'
 
   projects_parttitle: 'المشروعات'
   category_funding_chart_title: 'التمويل - بالدولار الأمريكي'
@@ -122,7 +121,7 @@ donor_pages:
   funded_title: 'المشروعات المُمولة'
 
 map_labels:
-  no_data: 'No Data'
+  no_data: 'لا توجد بيانات'
   map_group_label: 'عدد الاماكن الجغرافية للمشروع'
   map_project_label: 'مشروع'
 
