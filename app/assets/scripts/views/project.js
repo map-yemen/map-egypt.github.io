@@ -329,21 +329,6 @@ var Project = React.createClass({
                   </div>
                 )}
 
-                {data.sds_indicator && (
-                  <div className='overview-item--alt'>
-                    <h2 className='overview-item__title heading-alt'>{t.sds_pillars_title}</h2>
-                    <ul className='link-list'>
-                      {get(data, 'sds_indicator', []).map((indicator) => {
-                        return (
-                          <li key={indicator.en}>
-                            <span>{indicator[lang]}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-
                 {data.recommendations && (
                   <div className='overview-item--alt'>
                     <h2 className='overview-item__title heading-alt'>{t.recommendations}</h2>
