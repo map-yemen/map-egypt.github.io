@@ -458,25 +458,6 @@ var Project = React.createClass({
               ) : null}
             </section>
           </div>
-          <section className='inpage__section--bleed'>
-            <div className='inner'>
-              <h1 className='section__title heading--small'>{t.related_sds_projects_title}</h1>
-              <ul className='projects-list'>
-                {relatedProjects.map((p) => {
-                  return (
-                    <li key={p.id}
-                      className='projects-list__card'>
-                      <ProjectCard
-                        lang={lang}
-                        project={p}
-                      />
-                    </li>
-                    );
-                })}
-
-              </ul>
-            </div>
-          </section>
         </div>
       </section>
     );

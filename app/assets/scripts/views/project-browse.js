@@ -21,7 +21,7 @@ import { window } from 'global';
 
 const PROJECTS = 'projects';
 const INDICATORS = 'indicators';
-const indicatorTypes = ['sds', 'sdg', 'other'];
+const indicatorTypes = ['sdg', 'other'];
 const barChartMargin = { left: 145, right: 20, top: 10, bottom: 50 };
 
 function countByProp (array, path) {
@@ -84,17 +84,6 @@ const DONOR = {
   }
 };
 
-const SDS = {
-  translationPath: 'sds_goals',
-  items: (projects, lang) => {
-    const goals = countByProp(projects.reduce((a, b) => a.concat(b.sds_indicators), []), lang);
-    return Object.keys(goals).sort().map((goal) => ({
-      display: `${goal} (${goals[goal]})`,
-      filter: (p) => Array.isArray(p.sds_indicators) && p.sds_indicators.map(d => d[lang]).indexOf(goal) >= 0
-    }));
-  }
-};
-
 const SDG = {
   translationPath: 'sdg_goals',
   items: (projects, lang) => {
@@ -106,7 +95,7 @@ const SDG = {
   }
 };
 
-const projectFilters = [STATUS, CATEGORY, DONOR, SDS, SDG];
+const projectFilters = [STATUS, CATEGORY, DONOR, SDG];
 
 var ProjectBrowse = React.createClass({
   displayName: 'ProjectBrowse',
