@@ -43,13 +43,17 @@ projects_indicators:
   sds_dropdown: NFSS Indicators
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
-  status_ontime: On Time
-  status_delayed: Delayed
-  project_status: Project Status
-  category: Category
-  donor: Donor
-  sds_goals: SDS Goals
-  sdg_goals: SDG Goals
+  compare_indicators: Add and compare development indicators listed below.
+  selected_indicators: Selected Indicators
+  add: Add
+  indicators: Indicators
+  cancel: Cancel
+  apply: Apply
+  add_and_filter: Add and Filter projects
+  all_projects: All Projects
+  reset_filters: reset filters
+  selected_overlays: Selected Indicator Overlays
+  other: Other
 
 projects_list_view:
   projects_title: Projects

@@ -22,7 +22,7 @@ import { window } from 'global';
 const PROJECTS = 'projects';
 const INDICATORS = 'indicators';
 const indicatorTypes = ['sdg', 'other'];
-const barChartMargin = { left: 145, right: 20, top: 10, bottom: 50 };
+const barChartMargin = { left: 75, right: 20, top: 10, bottom: 50 };
 
 function countByProp (array, path) {
   const result = {};
@@ -34,35 +34,17 @@ function countByProp (array, path) {
   return result;
 }
 
-// Sort function for indicators names.
-// First checks if there is a digit, ie. `Pillar 1`.
-// Otherwise sorts alphabetically.
-const digit = new RegExp(/[0-9]+/);
-const digitSort = (a, b) => {
-  let digitA = a.match(digit);
-  if (digitA) {
-    let digitB = b.match(digit);
-    if (digitB) {
-      return Number(digitA[0]) > Number(digitB[0]) ? 1 : -1;
-    }
-  } else {
-    return a < b ? -1 : 1;
-  }
-};
-
 // Project filters
 const STATUS = {
-  translationPath: 'project_status',
-  items: (projects, lang, t) => {
-    return [
-      { display: t.status_ontime, filter: isOntime },
-      { display: t.status_delayed, filter: (p) => !isOntime(p) }
-    ];
-  }
+  display: 'Project Status',
+  items: [
+    { display: 'On Time', filter: isOntime },
+    { display: 'Delayed', filter: (p) => !isOntime(p) }
+  ]
 };
 
 const CATEGORY = {
-  translationPath: 'category',
+  display: 'Category',
   items: (projects, lang) => {
     const categories = countByProp(projects.reduce((a, b) => a.concat(b.categories), []), lang);
     return Object.keys(categories).map((category) => ({
@@ -73,19 +55,18 @@ const CATEGORY = {
 };
 
 const DONOR = {
-  translationPath: 'donor',
-  items: (projects, lang) => {
-    const prop = lang === 'ar' ? 'donor_name_ar' : 'donor_name';
-    const donors = countByProp(projects.reduce((a, b) => a.concat(b.budget), []), prop);
+  display: 'Donor',
+  items: (projects) => {
+    const donors = countByProp(projects.reduce((a, b) => a.concat(b.budget), []), 'donor_name');
     return Object.keys(donors).map((donor) => ({
       display: `${donor} (${donors[donor]})`,
-      filter: (p) => Array.isArray(p.budget) && p.budget.find((budget) => budget[prop] === donor)
+      filter: (p) => Array.isArray(p.budget) && p.budget.find((budget) => budget.donor_name === donor)
     }));
   }
 };
 
 const SDG = {
-  translationPath: 'sdg_goals',
+  display: 'SDG Goals',
   items: (projects, lang) => {
     const goals = countByProp(projects.reduce((a, b) => a.concat(b.sdg_indicators), []), lang);
     return Object.keys(goals).map((goal) => goal).sort().map((goal) => ({
@@ -96,6 +77,7 @@ const SDG = {
 };
 
 const projectFilters = [STATUS, CATEGORY, DONOR, SDG];
+const digit = new RegExp(/[0-9]+/);
 
 var ProjectBrowse = React.createClass({
   displayName: 'ProjectBrowse',
@@ -190,7 +172,7 @@ var ProjectBrowse = React.createClass({
   },
 
   openIndicatorSelector: function (activeIndicatorType) {
-    activeIndicatorType = activeIndicatorType.split(' ')[0].toUpperCase();
+    activeIndicatorType = activeIndicatorType.split(' ')[0];
     this.setState({
       modal: true,
       activeModal: INDICATORS,
@@ -363,38 +345,47 @@ var ProjectBrowse = React.createClass({
   renderIndicatorSelector: function () {
     const { selectedIndicators, activeIndicatorTheme, activeIndicatorType } = this.state;
     const { lang } = this.props.meta;
-    const t = get(window.t, [lang, 'projects_indicators'], {});
     const indicatorProp = activeIndicatorType.toLowerCase();
     const indicators = get(this.props.api, 'indicators', []).filter((indicator) => {
       return indicator.theme.length && indicator.theme.find(d => d.type === indicatorProp);
     });
+    const t = get(window.t, [lang, 'projects_indicators'], {});
 
     const themes = {};
     indicators.forEach((indicator) => {
       indicator.theme.forEach((theme) => {
         if (theme.type === indicatorProp) {
           let themeName = theme[lang];
+          if (!themeName) return;
           themes[themeName] = themes[themeName] || [];
           themes[themeName].push(indicator);
         }
       });
     });
 
-    const themeNames = Object.keys(themes).sort(digitSort);
-    const indicatorTheme = activeIndicatorTheme && themeNames.indexOf(activeIndicatorTheme) >= 0 ? activeIndicatorTheme : themeNames[0];
-    const indicatorNameProp = lang === 'en' ? 'name' : 'name_ar';
-    const availableIndicators = get(themes, indicatorTheme, []).sort((a, b) => {
-      return a[indicatorNameProp] < b[indicatorNameProp] ? -1 : 1;
+    const themeNames = Object.keys(themes).sort((a, b) => {
+      let digitA = a.match(digit);
+      if (digitA) {
+        let digitB = b.match(digit);
+        if (digitB) {
+          return Number(digitA[0]) > Number(digitB[0]) ? 1 : -1;
+        }
+      } else {
+        return a > b ? -1 : 1;
+      }
     });
+
+    const indicatorTheme = activeIndicatorTheme && themeNames.indexOf(activeIndicatorTheme) >= 0 ? activeIndicatorTheme : themeNames[0];
+    const availableIndicators = get(themes, indicatorTheme, []);
     return (
       <section className='modal modal--large'>
         <div className='modal__inner modal__indicators'>
           <button className='modal__button-dismiss' title='close' onClick={this.closeModal}></button>
           <h1 className='inpage__title heading--deco heading--medium'>{t.add} {t[this.state.activeIndicatorType.toLowerCase() + '_dropdown']}</h1>
-          <div className='modal__instructions'><p>Add and compare development indicators listed below.</p></div>
+          <div className='modal__instructions'><p>{t.compare_indicators}</p></div>
 
           <div className='indicators--selected'>
-            <span className='heading--label'>Selected Indicators:&nbsp;</span>
+            <span className='heading--label'>{t.selected_indicators}</span>
             {selectedIndicators.map((name) => {
               return (
                 <span className='button--small button--tag'
@@ -418,8 +409,8 @@ var ProjectBrowse = React.createClass({
             </div>
             <div className='indicators--options'>
               {availableIndicators.length && availableIndicators.map((indicator) => {
-                const name = indicator[indicatorNameProp];
-                if (!name) return;
+                const name = lang === 'en' ? indicator.name : indicator.name_ar;
+                if (!name) return null;
                 const id = 'subtypes-' + slugify(name);
 
                 return (
@@ -441,10 +432,10 @@ var ProjectBrowse = React.createClass({
             <ul className='button--list'>
               <li><button
                   onClick={this.confirmIndicators}
-                  type='button' className='button button--medium button--primary'>Apply</button></li>
+                  type='button' className='button button--medium button--primary'>{t.apply}</button></li>
               <li><button
                   onClick={this.cancelIndicators}
-                  type='button' className='button button--medium button--primary-bounded'>Cancel</button></li>
+                  type='button' className='button button--medium button--primary-bounded'>{t.cancel}</button></li>
             </ul>
         </div>
       </section>
@@ -452,9 +443,11 @@ var ProjectBrowse = React.createClass({
   },
 
   renderActiveIndicators: function (activeIndicator, activeIndicators) {
+    const { lang } = this.props.meta;
+    const t = get(window.t, [lang, 'projects_indicators'], {});
     return (
       <div className='indicator__overlay'>
-        <h1 className='heading--label'>Selected Indicator Overlays</h1>
+        <h1 className='heading--label'>{t.selected_overlays}</h1>
         <ul className='indicator__overlay--list'>
           {activeIndicators.map((indicator) => (
             <li
@@ -481,7 +474,7 @@ var ProjectBrowse = React.createClass({
     return (
       <section className='modal modal--large'>
         <div className='modal__inner modal__projects'>
-          <h1 className='inpage__title heading--deco heading--medium'>Add and Filter Projects</h1>
+          <h1 className='inpage__title heading--deco heading--medium'>{t.add_and_filter}</h1>
           <div className='modal__filters'>
             <div className='modal__filters--defaults'>
               <label className='form__option form__option--custom-checkbox'>
@@ -492,22 +485,20 @@ var ProjectBrowse = React.createClass({
                   id='form-checkbox-1'
                   onChange={this.toggleProjects}
                   value='All projects' />
-                <span className='form__option__text'>All Projects</span>
+                <span className='form__option__text'>{t.all_projects}</span>
                 <span className='form__option__ui'></span>
               </label>
-              <a onClick={this.resetProjectFilters} className='link--secondary'>reset filters</a>
+              <a onClick={this.resetProjectFilters} className='link--secondary'>{t.reset_filters}</a>
             </div>
 
             {projectFilters.map((filter) => (
 
-              <fieldset key={filter.translationPath}
+              <fieldset key={filter.display}
                 className='form__fieldset'>
 
-                 <label className='form__label'>{t[filter.translationPath]}</label>
+                 <label className='form__label'>{filter.display}</label>
                  <div className='form__group'>
-                   {(Array.isArray(filter.items) ? filter.items : filter.items(projects, lang, t)).sort((a, b) => {
-                     return a.display < b.display ? -1 : 1;
-                   }).map((item) => (
+                  {(Array.isArray(filter.items) ? filter.items : filter.items(projects, lang)).map((item) => (
                     <label key={item.display}
                       className={`form__option form__option--custom-checkbox ${this.state.projectsHidden ? 'disabled' : ''}`}>
                       <input
@@ -529,11 +520,11 @@ var ProjectBrowse = React.createClass({
               <li><button
                   onClick={this.confirmFilters}
                   type='button'
-                  className='button button--medium button--primary'>Apply</button></li>
+                  className='button button--medium button--primary'>{t.apply}</button></li>
               <li><button
                   onClick={this.cancelFilters}
                   type='button'
-                  className='button button--medium button--primary-bounded'>Cancel</button></li>
+                  className='button button--medium button--primary-bounded'>{t.cancel}</button></li>
             </ul>
           </div>
           <button className='modal__button-dismiss' title='close' onClick={this.closeModal}></button>
@@ -543,11 +534,12 @@ var ProjectBrowse = React.createClass({
   },
 
   render: function () {
+    const { lang } = this.props.meta;
     const selectedClassNames = 'button button--primary';
     const deselectedClassNames = 'button button--primary-bounded';
 
     let mapLocation;
-    const governorateId = get(this.state, 'activeGovernorate.yem');
+    const governorateId = get(this.state, 'activeGovernorate.egy');
     if (governorateId) {
       const features = get(this.props.api, 'geography.' + GOVERNORATE + '.features', []);
       mapLocation = features.find((feature) => get(feature, 'properties.admin_id') === governorateId);
@@ -588,7 +580,6 @@ var ProjectBrowse = React.createClass({
       }
     }
 
-    const { lang } = this.props.meta;
     const t = get(window.t, [lang, 'projects_indicators'], {});
 
     return (
