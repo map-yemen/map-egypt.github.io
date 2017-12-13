@@ -42,13 +42,17 @@ projects_indicators:
   list_toggle_btn: 'قائمة \رسم بياني'
   sdg_dropdown: 'مؤشرات أهداف التنمية المُستدامة'
   other_dropdown: 'مؤشرات تنمية أخرى'
-  status_ontime: 'في الميعاد'
-  status_delayed: 'متأخر'
-  project_status: Project Status
-  category: Category
-  donor: Donor
-  sds_goals: SDS Goals
-  sdg_goals: SDG Goals
+  compare_indicators: 'أضف وقارن مؤشرات التنمية التالية'
+  selected_indicators: 'المؤشرات المختارة'
+  add: 'أضف'
+  indicators: 'المؤشرات'
+  cancel: 'إلغاء'
+  apply: 'تطبيق'
+  add_and_filter: 'إضافة وتصفية المشاريع'
+  all_projects: 'جميع المشاريع'
+  reset_filters: 'إعادة التصفية'
+  selected_overlays: 'المؤشرات المحددة'
+  other: Other
 
 projects_list_view:
   projects_title: 'المشروعات'

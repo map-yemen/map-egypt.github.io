@@ -14,11 +14,6 @@ function categoryLink (base, categoryName) {
 }
 
 function isOntime (project) {
-  project.status = {
-    en: 'On Time',
-    ar: 'test'
-  };
-
   if (project.status.en.toLowerCase() === 'closed') {
     return 'closed';
   }
@@ -84,11 +79,6 @@ var ProjectCard = React.createClass({
         projects.push(location.display);
       }
     });
-
-    project.status = {
-      en: 'On Time',
-      ar: 'test'
-    };
 
     const t = get(window.t, [lang, 'project_pages'], {});
     return (
