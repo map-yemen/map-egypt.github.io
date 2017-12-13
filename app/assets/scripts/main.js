@@ -73,7 +73,6 @@ render((
       <Route path='/access_token=:token' />
       <Route path='/:lang' component={App} onEnter={redirectToLastUrl}>
         <Route path='projects' component={ProjectBrowse} />
-        <Route path='projects_sds' component={ProjectBrowse} modal='SDS' />
         <Route path='projects_sdg' component={ProjectBrowse} modal='SDG' />
         <Route path='projects_other' component={ProjectBrowse} modal='other' />
         <Route path='projects/:id' component={Project} />
