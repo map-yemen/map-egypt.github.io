@@ -6,7 +6,7 @@ import { scaleQuantile, scaleOrdinal } from 'd3-scale';
 import { extend, uniq } from 'lodash';
 import { get } from 'object-path';
 import { byId as byIdDist, byName as byNameDist } from '../utils/districts';
-import { byYem as byYemGove, byName as byNameGove } from '../utils/governorates';
+import { byEgy as byEgyGove, byName as byNameGove } from '../utils/governorates';
 import { isNumerical } from '../utils/is-numerical-overlay';
 import { roundedNumber } from '../utils/format';
 import { customScales } from '../utils/scales';
@@ -49,8 +49,8 @@ const OVERLAY_STYLE = {
   fillOpacity: 0.8
 };
 
-const categoryLookup = {'very low': 5, 'low': 4, 'medium': 3, 'high': 2, 'very high': 1};
-const idLookup = {5: 'very low', 4: 'low', 3: 'medium', 2: 'high', 1: 'very high'};
+const categoryLookup = {'very low': 1, 'low': 2, 'medium': 3, 'high': 4, 'very high': 5};
+const idLookup = {1: 'very low', 2: 'low', 3: 'medium', 4: 'high', 5: 'very high'};
 
 function getLatLngBounds (bounds) {
   let b = bbox(bounds);
@@ -102,16 +102,15 @@ const Map = React.createClass({
       const statusClass = marker.ontime ? 'project--ontime' : 'project--delayed';
       const accessor = marker.isDistrict ? byNameDist : byNameGove;
       const location = accessor(marker.region)[locationLang];
-      const localMarkerName = (lang === 'en') ? (marker.name || marker.name_ar) : (marker.name_ar || marker.name);
       leafletMarker.bindPopup(
         `<div class='marker__internal'>` +
-          `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${localMarkerName}</a></h5>` +
+          `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${marker.name}</a></h5>` +
           `<dl class='card-meta ${statusClass}'>` +
-                `<dt class='card-meta__label'>Status</dt>` +
-                `<dd class='card-meta__value card-meta__value--status'>${status}</dd>` +
-                `<dt class='card-meta__label'>Location</dt>` +
-                `<dd class='card-meta__value card-meta__value--location'>${location}</dd>` +
-              `</dl>` +
+              `<dt class='card-meta__label'>Status</dt>` +
+              `<dd class='card-meta__value card-meta__value--status'>${status}</dd>` +
+              `<dt class='card-meta__label'>Location</dt>` +
+              `<dd class='card-meta__value card-meta__value--location'>${marker.village ? marker.village + ', ' : ''}${location}</dd>` +
+            `</dl>` +
         `</div>`
       );
       markerLayer.addLayer(leafletMarker);
@@ -137,7 +136,7 @@ const Map = React.createClass({
     if (category) {
       switch (category.toLowerCase()) {
         case 'sequential':
-          domain = values.map(d => +d.value);
+          domain = values.filter(d => !isNaN(d.value)).map(d => +d.value);
           scale = scaleQuantile().domain(domain).range(SEQUENTIAL.slice(0, 5));
           break;
 
@@ -184,7 +183,7 @@ const Map = React.createClass({
 
     this.overlay = L.geoJson(regions, { style }).bindPopup(function ({ feature }) {
       const id = feature.properties[idName];
-      const name = isDistrict ? get(byIdDist(id), 'name') : get(byYemGove(id), 'name');
+      const name = isDistrict ? get(byIdDist(id), 'name') : get(byEgyGove(id), 'name');
       return `
       <div class='marker__internal'>
         <h5 class='marker__title'>${name}</h5>

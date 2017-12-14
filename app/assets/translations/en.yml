@@ -34,13 +34,13 @@ homepage:
 
 projects_indicators:
   projects_title: Projects and Indicators
-  projects_description: Browse projects on the map or see a list of all agriculture, food security and nutrition projects. Map or chart development indicators to add socioeconomic context.
+  projects_description: Browse projects on the map or see a list of all agriculture projects. Map or chart development indicators to add socioeconomic context.
   filter_projects_btn: Add & Filter Projects
   indicator_overlays_btn: Add Indicator Overlays
   search_text: Zoom to Governorate
   map_toggle_btn: Map
   list_toggle_btn: List/Chart
-  sds_dropdown: NFSS Indicators
+  sds_dropdown: SDS Indicators
   sdg_dropdown: SDG Indicators
   other_dropdown: Other Indicators
   compare_indicators: Add and compare development indicators listed below.
@@ -54,6 +54,12 @@ projects_indicators:
   reset_filters: reset filters
   selected_overlays: Selected Indicator Overlays
   other: Other
+  status_ontime: On Time
+  status_delayed: Delayed
+  project_status: Project Status
+  category: Category
+  donor: Donor
+  sdg_goals: SDG Goals
 
 projects_list_view:
   projects_title: Projects

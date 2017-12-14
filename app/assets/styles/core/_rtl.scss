@@ -557,6 +557,21 @@
     float: right;
     margin-right: 0;
   }
+  .timeline__label {
+    right: 0%;
+  }
+  .timeline__inner {
+    right: 0%;
+  }
+  .card-meta__value--timeline {
+    margin-right: 0rem;
+    padding-right: 0rem;
+    border-right: 0px;
+    margin-left: 0.2rem;
+    padding-left: 1rem;
+    border-left: 1px solid #2B2342;
+  }
+
   .legend__item {
     float: right;
   }
@@ -595,6 +610,9 @@
       float: right;
     }
   }
+}
+.date-contract dd {
+  float: right;
 }
 }
 
