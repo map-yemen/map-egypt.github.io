@@ -34,12 +34,13 @@ homepage:
 
 projects_indicators:
   projects_title: 'المشروعات والمؤشرات'
-  projects_description: 'تصفح المشروعات التنموية على الخريطة أو من خلال القائمة. يمكنك إضافة مؤشرات التنمية لوضع المشروعات في سياق الحالة التنموية في المحافظة'
+  projects_description: 'تصفح المشروعات الزراعية على الخريطة أو من خلال القائمة. يمكنك إضافة مؤشرات التنمية لوضع المشروعات في سياق الحالة التنموية في المحافظة'
   filter_projects_btn: 'اضافة وتصفية المشروعات'
   indicator_overlays_btn: 'اضافة مؤشرات'
   search_text: 'اسم المحافظة'
   map_toggle_btn: 'خريطة'
   list_toggle_btn: 'قائمة \رسم بياني'
+  sds_dropdown: 'مؤشرات استراتيجية التنمية المستدامة'
   sdg_dropdown: 'مؤشرات أهداف التنمية المُستدامة'
   other_dropdown: 'مؤشرات تنمية أخرى'
   compare_indicators: 'أضف وقارن مؤشرات التنمية التالية'
@@ -52,7 +53,13 @@ projects_indicators:
   all_projects: 'جميع المشاريع'
   reset_filters: 'إعادة التصفية'
   selected_overlays: 'المؤشرات المحددة'
-  other: Other
+  other: 'اخرى'
+  status_ontime: 'في الميعاد'
+  status_delayed: 'متأخر'
+  project_status: 'حالة المشروع'
+  category: 'القطاع الفرعي'
+  donor: 'الجهة المانحة'
+  sdg_goals: 'أهداف التنمية المُستدامة'
 
 projects_list_view:
   projects_title: 'المشروعات'
