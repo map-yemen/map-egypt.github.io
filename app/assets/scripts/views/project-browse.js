@@ -52,7 +52,7 @@ const digitSort = (a, b) => {
 
 // Project filters
 const STATUS = {
-  translationPath: 'Project Status',
+  translationPath: 'project_status',
   items: (projects, lang, t) => {
     return [
       { display: t.status_ontime, filter: isOntime },
