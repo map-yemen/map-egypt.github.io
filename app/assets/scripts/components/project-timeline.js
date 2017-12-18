@@ -54,7 +54,8 @@ function timeline (start, end, scale, lang) {
   const left = scale(new Date(start));
   const right = scale(new Date(end));
   const width = right - left;
-  return (
+
+  let timeline = (
     <div className='timeline__row'>
       <div className='timeline__inner' style={{
         left: left + '%',
@@ -67,4 +68,20 @@ function timeline (start, end, scale, lang) {
       <h5 className='timeline__label timeline__label--right' style={{ right: (100 - right) + '%' }}>{formatDate(end, lang)}</h5>
     </div>
   );
+  if (lang === 'ar') {
+    timeline = (
+      <div className='timeline__row'>
+      <div className='timeline__inner' style={{
+        left: (100 - right) + '%',
+        width: width + '%'
+      }}>
+      </div>
+      <hr style={{ right: right + '%' }} />
+      <hr style={{ right: left + '%' }} />
+      <h5 className='timeline__label' style={{ right: left + '%' }}>{formatDate(start, lang)}</h5>
+      <h5 className='timeline__label timeline__label--right' style={{ left: (100 - right) + '%' }}>{formatDate(end, lang)}</h5>
+    </div>
+    );
+  }
+  return timeline;
 }
