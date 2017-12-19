@@ -298,17 +298,24 @@ var Project = React.createClass({
                   </div>
                 )}
 
-                {data.kmi && (
+                {data.components && (
                   <div className='overview-item--alt'>
                     <h2 className='overview-item__title heading-alt'>{t.kmi_components}</h2>
                     <ul className='link-list'>
-                      {uniq(get(data, 'kmi', []).map((kmi) => kmi.component.trim())).map(component => {
-                        return (
-                          <li key={component}>
-                            <span>{component}</span>
-                          </li>
-                        );
-                      })}
+                        {uniq(get(data, 'components', [])
+                          .map((kmi) => {
+                            var component = kmi.component;
+                            if (lang === 'ar' && kmi.component_ar) {
+                              component = kmi.component_ar || '';
+                            }
+                            return component.trim();
+                          })).map(component => {
+                            return (
+                              <li key={component}>
+                                <span>{component}</span>
+                              </li>
+                            );
+                          })}
                     </ul>
                   </div>
                 )}
@@ -382,11 +389,18 @@ var Project = React.createClass({
                   </thead>
                   <tbody>
                     {data.kmi.map((d) => {
+                      let component = d.component;
+                      let kpi = d.kpi;
+                      if (lang === 'ar') {
+                        if (d.component_ar) component = d.component_ar;
+                        if (d.kpi_ar) kpi = d.kpi_ar;
+                      }
+
                       const key = slugify(d.status.en);
                       return (
-                        <tr key={d.kpi}>
-                          <td className='cell-name'>{d.component}</td>
-                          <td>{d.kpi}</td>
+                        <tr key={kpi}>
+                          <td className='cell-name'>{component}</td>
+                          <td>{kpi}</td>
                           <td className={'project--' + key}>
                             <p className='activity-name'>{d.status[lang]}</p>
                           </td>
