@@ -102,14 +102,15 @@ const Map = React.createClass({
       const statusClass = marker.ontime ? 'project--ontime' : 'project--delayed';
       const accessor = marker.isDistrict ? byNameDist : byNameGove;
       const location = accessor(marker.region)[locationLang];
+      const localMarkerName = (lang === 'en') ? (marker.name || marker.name_ar) : (marker.name_ar || marker.name);
       leafletMarker.bindPopup(
         `<div class='marker__internal'>` +
-          `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${marker.name}</a></h5>` +
+          `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${localMarkerName}</a></h5>` +
           `<dl class='card-meta ${statusClass}'>` +
               `<dt class='card-meta__label'>Status</dt>` +
               `<dd class='card-meta__value card-meta__value--status'>${status}</dd>` +
               `<dt class='card-meta__label'>Location</dt>` +
-              `<dd class='card-meta__value card-meta__value--location'>${marker.village ? marker.village + ', ' : ''}${location}</dd>` +
+              `<dd class='card-meta__value card-meta__value--location'>${location}</dd>` +
             `</dl>` +
         `</div>`
       );
