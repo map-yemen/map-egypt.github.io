@@ -98,11 +98,13 @@ const Map = React.createClass({
       const leafletMarker = L.marker(marker.centroid, {
         icon: L.mapbox.marker.icon({'marker-symbol': 'circle', 'marker-color': '2B2342'})
       });
-      const status = marker.ontime ? 'On Time' : 'Delayed';
+      const status = marker.ontime === 'ontime' ? 'On Time'
+        : marker.ontime === 'delayed' ? 'Delayed' : 'Extended';
+
       const statusClass = marker.ontime ? 'project--ontime' : 'project--delayed';
       const accessor = marker.isDistrict ? byNameDist : byNameGove;
       const location = accessor(marker.region)[locationLang];
-      const localMarkerName = (lang === 'en') ? (marker.name || marker.name_ar) : (marker.name_ar || marker.name);
+      const localMarkerName = (lang === 'en') ? (marker.name || 'English name missing') : (marker.name_ar || 'Arabic name missing');
       leafletMarker.bindPopup(
         `<div class='marker__internal'>` +
           `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${localMarkerName}</a></h5>` +
