@@ -106,7 +106,7 @@ const Map = React.createClass({
       const location = accessor(marker.region)[locationLang];
       const localMarkerName = (lang === 'en') ? (marker.name || 'English name missing') : (marker.name_ar || 'Arabic name missing');
       leafletMarker.bindPopup(
-        `<div class='marker__internal'>` +
+        `<div class='marker__internal project--${marker.ontime}'>` +
           `<h5 class='marker__title'><a href='#/${lang}/projects/${marker.id}' class='link--deco'>${localMarkerName}</a></h5>` +
           `<dl class='card-meta ${statusClass}'>` +
               `<dt class='card-meta__label'>Status</dt>` +
