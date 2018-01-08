@@ -98,7 +98,9 @@ const Map = React.createClass({
       const leafletMarker = L.marker(marker.centroid, {
         icon: L.mapbox.marker.icon({'marker-symbol': 'circle', 'marker-color': '2B2342'})
       });
-      const status = marker.ontime ? 'On Time' : 'Delayed';
+      const status = marker.ontime === 'ontime' ? 'On Time'
+        : marker.ontime === 'delayed' ? 'Delayed' : 'Extended';
+
       const statusClass = marker.ontime ? 'project--ontime' : 'project--delayed';
       const accessor = marker.isDistrict ? byNameDist : byNameGove;
       const location = accessor(marker.region)[locationLang];
