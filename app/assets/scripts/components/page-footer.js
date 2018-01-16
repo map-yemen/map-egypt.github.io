@@ -46,9 +46,9 @@ var PageFooter = React.createClass({
             <div className='logos'>
               <ul className='logos__list'>
                 <li><a title='Visit sponsor webpage' className='logos__item' target='_blank' href='http://www.ifpri.org/'><img src='assets/graphics/content/iflri.png' alt='View sponsor website'/></a></li>
-                <li><a title='Visit sponsor webpage' className='logos__item' target='_blank' href='https://www.giz.de/en/worldwide/369.html'><img src='assets/graphics/content/giz-red-logo.jpg' alt='View sponsor website'/></a></li>
                 <li><a title='Visit sponsor webpage' className='logos__item' target='_blank' href='http://scalingupnutrition.org/sun-countries/yemen/'><img src='assets/graphics/content/logo-scalingup.jpg' alt='View sponsor website'/></a></li>
                 <li><a title='Visit sponsor webpage' className='logos__item logo__item--fsts' target='_blank' href='http://www.fsts-gov.com/?language=english'><img src='assets/graphics/content/fsts-logo.png' alt='View sponsor website'/></a></li>
+                <li><a title='Visit sponsor webpage' className='logos__item' target='_blank' href='https://www.giz.de/en/worldwide/369.html'><img src='assets/graphics/content/giz-red-logo.jpg' alt='View sponsor website'/></a></li>
               </ul>
             </div>
           </div>
