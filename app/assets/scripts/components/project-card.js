@@ -14,7 +14,7 @@ function categoryLink (base, categoryName) {
 }
 
 function isOntime (project) {
-  if (project.status.en.toLowerCase() === 'closed') {
+  if (project.status && project.status.en.toLowerCase() === 'closed') {
     return 'closed';
   }
 
