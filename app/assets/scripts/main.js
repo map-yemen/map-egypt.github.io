@@ -94,7 +94,7 @@ render((
 
 function completeAuth (nextState, replace) {
   resumeAuth(`access_token=${nextState.params.access_token}`);
-  redirectToLastUrl(nextState, replace)
+  redirectToLastUrl(nextState, replace);
 }
 
 function redirectToLastUrl (nextState, replace) {
