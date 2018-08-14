@@ -70,7 +70,7 @@ var Home = React.createClass({
       }
       (project.budget || []).forEach((budget) => {
         totalDonors[budget.donor_name] = '';
-        totalFunding += budget.fund.amount;
+        totalFunding += (budget.fund.amount || 0);
       });
     });
     totalFunding = shorterTally(totalFunding);
