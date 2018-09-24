@@ -121,9 +121,6 @@ var Home = React.createClass({
                   </li>
                   <li className='category-stats__item'>
                     <h3 className='inpage-stats heading--deco-small'>{collaborationCount}<small>{t.donor_collaborations}</small></h3>
-                    <ul className='inpage-stats__collaborators'>
-                      {collaboratorNames.map((name, i) => <li key={i}>{name}</li>)}
-                    </ul>
                   </li>
                 </ul>
               </div>
