@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import _ from 'lodash';
 import { shortText, tally, shorterTally } from '../utils/format';
 import { get } from 'object-path';
 import path from 'path';
@@ -75,7 +74,6 @@ var Home = React.createClass({
     });
     totalFunding = shorterTally(totalFunding);
     totalDonors = Object.keys(totalDonors).length;
-    const collaboratorNames = _.uniq(collaborations).sort((a, b) => a.length < b.length);
 
     const pie = [{
       name: 'On Time',
