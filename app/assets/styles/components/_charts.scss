@@ -104,6 +104,9 @@
 .chart-content--status {
   position: relative;
   padding-bottom: 2.5em;
+  .chart-container {
+    height: 240px;
+  }
 }
 
 svg {
