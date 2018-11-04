@@ -55,8 +55,8 @@ const STATUS = {
   translationPath: 'project_status',
   items: (projects, lang, t) => {
     return [
-      { display: t.status_ontime, filter: isOntime },
-      { display: t.status_delayed, filter: (p) => !isOntime(p) }
+      { display: t.status_ontime, filter: (p) => isOntime(p) !== 'delayed' },
+      { display: t.status_delayed, filter: (p) => isOntime(p) === 'delayed' }
     ];
   }
 };
