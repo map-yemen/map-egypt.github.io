@@ -116,8 +116,8 @@ var ProjectCard = React.createClass({
                 })}
               </div>
               <ul className='card-stats'>
-                <li>{currency(shortTally(funding))} <small>funding</small></li>
-                <li>{tally(project.number_served.number_served)} <small>{project.number_served.number_served_unit.toLowerCase()}</small></li>
+                <li>{currency(shortTally(funding))} <small>{t.funding_title.toLowerCase()}</small></li>
+                <li>{tally(project.number_served.number_served)} <small>{project.number_served[`number_served_unit${lang === 'ar' ? '_ar' : ''}`]}</small></li>
               </ul>
             </div>
           </div>
