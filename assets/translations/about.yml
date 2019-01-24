@@ -1,0 +1,14 @@
+en:
+  title: About
+  body:
+    - MAP Yemen is a monitoring tool that keeps track of agriculture, nutrition, and rural development projects in Yemen and their socio-economic context. The ultimate goal of the tool is to improve development project planning, coordination and effectiveness. Specifically, MAP Yemen helps the Government,  development partners, researchers and other interested parties to gain a quick overview of the state of food and nutrition security in Yemen at the aggregate and the project level. The tool has been developed for and with the Ministry of Planning and International Cooperation (MOPIC) by the International Food Policy Research Institute (IFPRI) in collaboration with Development Seed and as part of a Gesellschaft für Internationale Zusammenarbeit (GIZ) funded-project.
+    - In order to effectively allocate funds, build synergies and evaluate future proposals, users can visualize and monitor the status and progress of agricultural projects categorized by sector, location, donor or common objectives, as well as track key performance indicators related to the project. In order to contextualize projects and evaluate which governorates /districts require further assistance, users can also quickly map, zoom in and chart a wide-range of indicators on food and nutrition security, poverty and development across Yemen, with a focus on monitoring progress towards the Sustainable Development Goals (SDGs) - on the national and subnational level.
+    - text:
+      class: small
+ar:
+  title: عن الموقع
+  body:
+    - موقع خريطة اليمن التفاعليه (MAP Yemen) هو أداة رصد تتبع مشاريع الزراعة والتغذية والتنمية الريفية في اليمن وسياقها الاجتماعي والاقتصادي. والهدف النهائي لهذه الأداة هو تحسين تخطيط المشاريع التنموية وتنسيقها وزيادة فعاليتها. وعلى وجه التحديد ، تساعد  خريطة ​​اليمن (MAP Yemen) الحكومة والشركاء في التنمية والباحثين والأطراف المعنية الأخرى في الحصول على لمحة سريعة عن حالة الأمن الغذائي والتغذوي في اليمن على المستوى الكلي وعلى مستوى المشروع. وقد تم تطوير هذه الأداة مع وزارة التخطيط والتعاون الدولي (MOPIC) من قبل المعهد الدولي لبحوث السياسات الغذائية (IFPRI)  بالتعاون مع شركة  Development Seedوكجزء من المشروع الممول من قبل Gesellschaft für Internationale Zusammenarbeit (GIZ).
+    - ومن أجل تخصيص الأموال بشكل فعال ، وبناء التآزر وتقييم المقترحات المستقبلية ، يمكن للمستخدمين رؤية ومراقبة حالة المشاريع الزراعية وتقدمها مصنفة حسب القطاع أو الموقع أو الجهات المانحة أو الأهداف المشتركة ، بالإضافة إلى تتبع مؤشرات الأداء الرئيسية المتعلقة بالمشروع. من أجل وضع المشاريع في سياقها وتقييم المحافظات / المديريات التي تحتاج إلى مزيد من المساعدة ، كما يمكن للمستخدمين أيضًا رسم خريطة سريعة لمجموعة واسعة من المؤشرات حول الأمن الغذائي والتغذوي والفقر والتنمية في اليمن ، مع التركيز على مراقبة التقدم نحو أهداف التنمية المستدامة (SDGs) - على المستوى الوطني ودون الوطني.
+    - text:
+      class: small
